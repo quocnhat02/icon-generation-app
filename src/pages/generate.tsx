@@ -3,6 +3,7 @@ import Head from "next/head";
 import { useState } from "react";
 import FormGroup from "~/components/FormGroup";
 import Input from "~/components/Input";
+import { api } from "~/utils/api";
 
 const GeneratePage: NextPage = () => {
   const [form, setForm] = useState({
@@ -18,9 +19,18 @@ const GeneratePage: NextPage = () => {
     };
   }
 
+  const generateIcon = api.generate.generateIcon.useMutation({
+    onSuccess(data) {
+      console.log("mutation finished", data);
+    },
+  });
+
   function handleFormSubmit(e: React.FormEvent) {
     e.preventDefault();
     // TODO: submit the form data to the backend
+    generateIcon.mutate({
+      prompt: form.prompt,
+    });
   }
 
   return (
