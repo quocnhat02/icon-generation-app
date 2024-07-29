@@ -1,6 +1,7 @@
 import { type NextPage } from "next";
 import { signIn, signOut, useSession } from "next-auth/react";
 import Head from "next/head";
+import Image from "next/image";
 import { useState } from "react";
 import Button from "~/components/Button";
 import FormGroup from "~/components/FormGroup";
@@ -85,7 +86,14 @@ const GeneratePage: NextPage = () => {
           <Button>Submit</Button>
         </form>
 
-        <img src={imageUrl} />
+        {imageUrl && (
+          <Image
+            src={`data:image/png;base64,${imageUrl}`}
+            alt="an image of your generated prompt"
+            width={100}
+            height={100}
+          />
+        )}
       </main>
     </>
   );
