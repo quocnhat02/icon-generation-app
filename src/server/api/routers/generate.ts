@@ -20,6 +20,8 @@ const s3 = new AWS.S3({
   region: "ap-southeast-1",
 });
 
+const BUCKET_NAME = "icon-creater-project";
+
 const openai = new OpenAI({
   apiKey: env.DALLE_API_KEY,
 });
@@ -94,7 +96,7 @@ export const generateRouter = createTRPCRouter({
         .promise();
 
       return {
-        imageUrl: base64EncodedImage,
+        imageUrl: `https://${BUCKET_NAME}.s3.amazonaws.com/${icon.id}`,
       };
     }),
 });

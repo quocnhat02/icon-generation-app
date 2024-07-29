@@ -11,7 +11,10 @@ const config = {
   reactStrictMode: true,
 
   images: {
-    domains: ["lh3.googleusercontent.com"],
+    domains: [
+      "lh3.googleusercontent.com",
+      "icon-creater-project.s3.amazonaws.com",
+    ],
   },
 
   /**
