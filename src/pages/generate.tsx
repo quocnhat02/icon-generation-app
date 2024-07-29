@@ -6,9 +6,12 @@ import { useState } from "react";
 import Button from "~/components/Button";
 import FormGroup from "~/components/FormGroup";
 import Input from "~/components/Input";
+import { useBuyCredits } from "~/hooks/useBuyCredits";
 import { api } from "~/utils/api";
 
 const GeneratePage: NextPage = () => {
+  const { buyCredits } = useBuyCredits();
+
   const [form, setForm] = useState({
     prompt: "",
   });
@@ -65,13 +68,23 @@ const GeneratePage: NextPage = () => {
           </Button>
         )}
         {isLoggedIn && (
-          <Button
-            onClick={() => {
-              signOut().catch(console.error);
-            }}
-          >
-            Logout
-          </Button>
+          <>
+            <Button
+              onClick={() => {
+                buyCredits().catch(console.error);
+              }}
+            >
+              Buy Credits
+            </Button>
+
+            <Button
+              onClick={() => {
+                signOut().catch(console.error);
+              }}
+            >
+              Logout
+            </Button>
+          </>
         )}
         <form
           action=""
