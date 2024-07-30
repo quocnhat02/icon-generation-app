@@ -6,12 +6,9 @@ import { useState } from "react";
 import Button from "~/components/Button";
 import FormGroup from "~/components/FormGroup";
 import Input from "~/components/Input";
-import { useBuyCredits } from "~/hooks/useBuyCredits";
 import { api } from "~/utils/api";
 
 const GeneratePage: NextPage = () => {
-  const { buyCredits } = useBuyCredits();
-
   const [form, setForm] = useState({
     prompt: "",
   });
@@ -48,8 +45,6 @@ const GeneratePage: NextPage = () => {
 
   const session = useSession();
 
-  const isLoggedIn = !!session.data;
-
   return (
     <>
       <Head>
@@ -58,17 +53,6 @@ const GeneratePage: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex min-h-screen flex-col items-center justify-center">
-        {isLoggedIn && (
-          <>
-            <Button
-              onClick={() => {
-                buyCredits().catch(console.error);
-              }}
-            >
-              Buy Credits
-            </Button>
-          </>
-        )}
         <form
           action=""
           className="flex flex-col gap-4"

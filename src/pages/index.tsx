@@ -13,7 +13,7 @@ function HeroBanner() {
           Use AI to generate icons instead of paying a designer and waiting for
           them to create them for you.
         </p>
-        <PrimaryLinkButton href={"/generate"}>
+        <PrimaryLinkButton href={"/generate"} className="self-start">
           Generated your icons
         </PrimaryLinkButton>
       </div>
