@@ -9,7 +9,7 @@ const Header = () => {
   const isLoggedIn = !!session.data;
 
   return (
-    <header className="container mx-auto flex h-16 items-center justify-between px-4">
+    <header className="container mx-auto flex h-16 content-center items-center justify-between px-4">
       <PrimaryLink href={"/"}>Icon Creator</PrimaryLink>
       <ul>
         <li>

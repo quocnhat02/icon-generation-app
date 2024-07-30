@@ -58,15 +58,6 @@ const GeneratePage: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex min-h-screen flex-col items-center justify-center">
-        {!isLoggedIn && (
-          <Button
-            onClick={() => {
-              signIn().catch(console.error);
-            }}
-          >
-            Login
-          </Button>
-        )}
         {isLoggedIn && (
           <>
             <Button
@@ -75,14 +66,6 @@ const GeneratePage: NextPage = () => {
               }}
             >
               Buy Credits
-            </Button>
-
-            <Button
-              onClick={() => {
-                signOut().catch(console.error);
-              }}
-            >
-              Logout
             </Button>
           </>
         )}
