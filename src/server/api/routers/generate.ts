@@ -47,8 +47,6 @@ export const generateRouter = createTRPCRouter({
       })
     )
     .mutation(async ({ ctx, input }) => {
-      console.log("we are here", input.prompt);
-
       // TODO: verify the user has enough credits
       const { count } = await ctx.prisma.user.updateMany({
         where: {
