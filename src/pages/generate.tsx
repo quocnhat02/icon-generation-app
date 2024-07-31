@@ -1,5 +1,5 @@
 import { type NextPage } from "next";
-import { signIn, signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
@@ -46,8 +46,6 @@ const GeneratePage: NextPage = () => {
     }));
   }
 
-  const session = useSession();
-
   const colors = [
     "blue",
     "white",
@@ -84,7 +82,7 @@ const GeneratePage: NextPage = () => {
           <h2 className="text-xl">2. Pick your icon color.</h2>
           <FormGroup className="grid grid-cols-4">
             {colors.map((color) => (
-              <label htmlFor="" className="flex gap-2 text-2xl">
+              <label htmlFor="" className="flex gap-2 text-2xl" key={color}>
                 <input
                   type="radio"
                   name="color"
